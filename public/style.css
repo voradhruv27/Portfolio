@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* .box{
+        @apply text-red-500;
+    } */
+
+  /* Navigation Bar */
+
+  .nav-btn {
+    @apply inline-flex items-center justify-center p-2 rounded-md text-white hover:text-purple-600 hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white;
+  }
+
+  .nav-bar {
+    @apply text-white hover:bg-blue-100 hover:text-zinc-600 px-3 py-2 rounded-md text-base font-semibold transition border-2 border-purple-600 lg:mr-10;
+  }
+
+  /* Mobile Menu */
+
+  .res-nav {
+    @apply text-zinc-50 hover:bg-blue-100 hover:text-zinc-600 transition block px-3 py-2 rounded-md text-base font-medium border-2 border-purple-600;
+  }
+
+  /* About section */
+
+  .section {
+    @apply bg-cover bg-center min-h-screen flex items-center bg-blue-100 text-black shadow-lg p-6;
+  }
+
+  .div-cont {
+    @apply container mx-auto px-6 lg:px-16 flex flex-col-reverse lg:flex-row items-center text-black sm:mt-16;
+  }
+  .sec-div {
+    @apply bg-opacity-50 w-full h-full flex items-center justify-center;
+  }
+  .text-cont {
+    @apply w-full lg:w-1/2 text-center lg:text-left mt-8 lg:mt-0;
+  }
+  /* .img-border{
+    @apply pt-9;
+  } */
+
+  /* Card section */
+
+  .cards {
+    @apply flex flex-wrap justify-evenly gap-8 bg-blue-100 p-10 pt-12;
+  }
+
+  .all-card {
+    @apply flex flex-col bg-purple-600 rounded-lg overflow-hidden w-72 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-2xl;
+  }
+
+  .card-img {
+    @apply h-40 bg-cover bg-center border-2 m-1;
+  }
+
+  .card-headings {
+    @apply text-xl font-bold mb-2 text-white;
+  }
+
+  .card-btn {
+    @apply w-full px-4 py-2 bg-blue-100 hover:text-purple-600 rounded hover:bg-gray-200 font-bold;
+  }
+
+  /* Form */
+
+  .input{
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none;
+  }
+
+  .place-holders{
+    @apply block text-sm font-medium mb-1;
+  }
+
+  .ctn-btn{
+    @apply w-full bg-purple-600 text-black hover:text-blue-100 font-bold py-2 px-4 rounded-md hover:bg-purple-500 transition duration-300;
+  }
+
+  .contectLogos{
+    @apply text-black hover:text-gray-700 transition duration-300 w-10 h-10;
+  }
+
+  /* Skill's */
+
+  .skills{
+    @apply bg-blue-100 text-black py-10 px-6 scroll-mt-12;
+  }
+
+  .skillsCard{
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6;
+  }
+
+  /* Headings */
+
+  .headings {
+    @apply font-bold leading-tight mb-4 text-4xl lg:text-5xl;
+  }
+
+  .abt-hm-btn {
+    @apply bg-blue-50 font-medium text-purple-500 px-6 py-3 rounded-lg shadow-md hover:bg-gray-300 hover:text-black hover:border-2 transition duration-300;
+  }
+
+  .abt-hm-img {
+    @apply w-full lg:w-1/2 flex justify-center pt-8 sm:pt-0;
+  }
+
+  .paras {
+    @apply text-base lg:text-lg mb-6;
+  }
+
+  .nav-line {
+    @apply w-full bg-purple-600 h-6;
+  }
+
+  .abt-hm-img img{
+    @apply sm:pt-8;
+  }
+
+
+  /* Footer */
+
+  .footer{
+    @apply container mx-auto flex flex-col items-center space-y-4 sm:space-y-0 sm:flex-row sm:justify-around;
+  }
+
+  .svgImg{
+    @apply text-gray-400 hover:text-white transition duration-300;
+  }
+}
