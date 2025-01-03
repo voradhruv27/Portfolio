@@ -69,6 +69,33 @@ skills.forEach((skill) => {
   skillsGrid.appendChild(skillCard);
 });
 
+// Counter
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Key for the counter in local storage
+  const counterKey = "pageVisitCount";
+
+  // Retrieve the current count from local storage
+  let visitCount = localStorage.getItem(counterKey);
+
+  // If no count exists, initialize it
+  if (!visitCount) {
+    visitCount = 0;
+  } else {
+    visitCount = parseInt(visitCount);
+  }
+
+  // Increment the count
+  visitCount += 1;
+
+  // Update local storage with the new count
+  localStorage.setItem(counterKey, visitCount);
+
+  // Display the updated count on the page
+  document.getElementById("visitCounter").innerText = visitCount;
+});
+
+
 // Database
 
 document.getElementById("dataForm").addEventListener("submit", (event) => {
