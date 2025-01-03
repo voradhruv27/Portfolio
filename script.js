@@ -95,40 +95,48 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("visitCounter").innerText = visitCount;
 });
 
-
 // Database
 
-document.getElementById("dataForm").addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevent the default form submission
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Collect form data
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDBtAgLfQ8Ml2CmKYgXCGT5j8BTLWucPb0",
+  authDomain: "portfolio-2447b.firebaseapp.com",
+  projectId: "portfolio-2447b",
+  storageBucket: "portfolio-2447b.firebasestorage.app",
+  messagingSenderId: "997101827775",
+  appId: "1:997101827775:web:ee06fac428294c308c780a",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+document.getElementById("dataForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  // Get form values
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
-  // Send data to Google Apps Script Web App
-  fetch(
-    "https://script.google.com/macros/s/AKfycbzk-ke7eQpkCPRufDncOGvyQ1SDFNqxb7N_-lzRh3j_lHqOOzHQJAZfB3Nxnsl-GTVQ/exec",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, message }),
-    }
-  )
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Error: ${response.statusText}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      alert("Form submitted successfully!");
-      console.log("Response:", data);
-    })
-    .catch((error) => {
-      alert("Failed to submit form. Please try again later.");
-      console.error("Error:", error);
+  try {
+    // Add data to Firestore
+    await db.collection("contacts").add({
+      name: name,
+      email: email,
+      message: message,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
+
+    alert("Message sent successfully!");
+    // Reset the form
+    document.getElementById("dataForm").reset();
+  } catch (error) {
+    console.error("Error sending message: ", error);
+    alert("Failed to send message.");
+  }
 });
